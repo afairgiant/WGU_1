@@ -5,27 +5,28 @@
 #include "degree.h"
 using namespace std;
 
-// Define Student Class - Section D1
+// Define Student Class - Section D
 
 class Student {
 public:
     Student();
 
-    // DECLARE ACCESSORS
+    // DECLARE ACCESSORS - Section D2.A
 
-    // DECCLARE MUTATORS
+    // DECCLARE MUTATORS - Section D2.B
 
-    // CONSTRUCTOR
-    Student(string studentID, string nameFirst, string nameLast, string email, int age);
+    // CONSTRUCTOR - Section D2.D
+    Student(string studentID, string nameFirst, string nameLast, string email, int age, int daysInCourse[], degreeProgram degree);
 private:
 
+    // Data variables - Section D1
     string studentID;
     string firstName;
     string lastName;
     string emailAddress;
     int age;
     int* daysInCourse;
-    DegreeProgram degree;
+    degreeProgram degree;
 };
 
 #endif
