@@ -1,5 +1,5 @@
-#ifndef student_h
-#define student_h
+#ifndef STUDENT_H
+#define STUDENT_H
 #include iostream
 #include string
 #include "degree.h"
