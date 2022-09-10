@@ -1,7 +1,9 @@
 #ifndef STUDENT_H
 #define STUDENT_H
-#include iostream
-#include string
+#pragma once
+
+#include <iostream>
+#include <string>
 #include "degree.h"
 using namespace std;
 

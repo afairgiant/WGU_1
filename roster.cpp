@@ -7,3 +7,7 @@
 using namespace std;
 
 //Roster Class defintions
+
+roster::Roster()
+{
+}

@@ -15,7 +15,7 @@ class roster
 public:
 	//define functions E3. Sets instance variables from D1 and update roster
 	Roster();
-	void add(string student)
+	void add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, degreeProgram degree);
 };
 
 #endif
