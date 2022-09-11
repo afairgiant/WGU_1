@@ -29,7 +29,8 @@ public:
     void setEmailAddress(string emailAddress);
     void setAge(int age);
     void setDaysInCourse(int daysInCourse[]);
-    void setDegree(degreeProgram degree);
+   // void setDegree(degreeProgram degree);
+    void Print();
 
     // CONSTRUCTOR - Section D2.d
     Student(string studentID, string nameFirst, string nameLast, string email, int age, int daysInCourse[], degreeProgram degree);
