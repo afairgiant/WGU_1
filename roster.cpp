@@ -67,17 +67,10 @@ void Roster::remove(string studentID)
 void Roster::printAll()
 {
 	cout << "\n";
-	int p = 0;
 	for (int p = 0; p < 5; ++p) 
 	{
-		{
-			Roster::classRosterArray[p]->Print();
-		}
-		/*if (classRosterArray[p]->getStudentID() != "invalid") 
-		{
-			cout << " ";
-			classRosterArray[p]->Print();
-		}*/
+		classRosterArray[p]->Print();
+	
 	}
 }
 
