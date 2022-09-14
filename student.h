@@ -7,7 +7,7 @@
 #include "degree.h"
 using namespace std;
 
-// Define Student Class - Section D
+// Define Student Class - Section D2.a
 
 class Student {
 public:
@@ -29,7 +29,7 @@ public:
     void setEmailAddress(string emailAddress);
     void setAge(int age);
     void setDaysInCourse(int daysInCourse[]);
-   // void setDegree(degreeProgram degree);
+    void setDegree(degreeProgram degree);
     void Print();
 
     // CONSTRUCTOR - Section D2.d
