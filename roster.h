@@ -24,13 +24,16 @@ public:
 	void printAverageDaysInCourse(string studentID);
 	void printInvalidEmails();
 	void printByDegreeProgram(degreeProgram degree);
-	void parse(string);
+	void parse(string studentData);
 
 	//Destructor
 	~Roster();
 
-private:
+	//moved from private for access on main.cpp
 	Student** classRosterArray;
+
+private:
+	//Student** classRosterArray;
 	int index = -1;
 	int count;
 };

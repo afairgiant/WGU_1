@@ -20,7 +20,7 @@ Student::Student() {
 // constructor using all the variables D2-c
 Student::Student(string studentID, string nameFirst, string nameLast, string email, int age, int daysInCourse[], degreeProgram degree) 
 {
-		this->studentID = studentID;
+	this->studentID = studentID;
 	this->firstName = firstName;
 	this->lastName = lastName;
 	this->emailAddress = emailAddress;

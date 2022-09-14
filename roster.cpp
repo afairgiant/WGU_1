@@ -68,20 +68,31 @@ void Roster::printAll()
 {
 	cout << "\n";
 	int p = 0;
-	for (int p = 0; p < 5; p++) 
+	for (int p = 0; p < 5; ++p) 
 	{
-		if (classRosterArray[p]->getStudentID() != "invalid") 
+		{
+			Roster::classRosterArray[p]->Print();
+		}
+		/*if (classRosterArray[p]->getStudentID() != "invalid") 
 		{
 			cout << " ";
 			classRosterArray[p]->Print();
-		}
+		}*/
 	}
 }
 
 //Print average days in course
 void Roster::printAverageDaysInCourse(string studentID)
 {
-
+	for (int i = 0; i <= Roster::count; ++i)
+	{
+		if (classRosterArray[i]->getStudentID() == studentID)
+		{
+			cout << studentID << ": ";
+			//add all numbers together and divide by 3 and new line
+			cout << (classRosterArray[i]->getDaysInCourse()[0] + classRosterArray[i]->getDaysInCourse()[1] + classRosterArray[i]->getDaysInCourse()[2]) / 3 << "\n";
+		}
+	}
 }
 
 //check each email for @ sign and a '.' at the end - Section E3.e
@@ -104,12 +115,11 @@ void Roster::printByDegreeProgram(degreeProgram degree)
 
 }
 
-Roster::~Roster()
+void Roster::parse(string studentData) 
 {
 
 }
 
-void Roster::parse(string studentData) 
+Roster::~Roster()
 {
-
 }

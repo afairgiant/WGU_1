@@ -13,7 +13,17 @@ int main() {
 	cout << "WGU Student ID: 001574781\n";
 	cout << "Author: Alex Fair\n";
 
-
+	// Add each student to classRoster
+	//use the provided data
+	const string studentData[] =
+	{ 
+		"A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY", 
+		"A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK", 
+		"A3,Jack,Napoli,The_lawyer99yahoo.com,19,20,40,33,SOFTWARE", 
+		"A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY", 
+		//Add my own info
+		"A5,Alex,Fair,afair26@wgu.edu,29,42,25,18,SOFTWARE"
+	};
 	// size of table for parsing?
 	const int stuDataTable = 5;
 
@@ -33,9 +43,10 @@ int main() {
 
 	// Print each student's average days in course
 	cout << "Showing average days per class: \n";
-	for (int i = 0; i < stuDataTable; i++) {
-		Roster.printAverageDaysInCourse(i); // UPDATE ME TO WORK
-	}
+		for (int i = 0; i < stuDataTable; i++) 
+		{
+			Roster.printAverageDaysInCourse(Roster.classRosterArray[i]->getStudentID()); // FIX ME
+		}
 	cout << "\n";
 
 	// Print students in software degree
