@@ -101,7 +101,7 @@ void Student::setDaysInCourse(int daysInCourse[])
 
 // print specific student data D2-e
 
-void Student::Print() {
+void Student::print() {
 	int* cDays = getDaysInCourse();
 	string dProS = "Security";
 	if (getDegree() == degreeProgram::NETWORK) dProS = "Network";
@@ -109,7 +109,7 @@ void Student::Print() {
 	cout << "Student ID: " << getStudentID()
 		<< "\t First Name: " << getFirstName()
 		<< "\t Last Name: " << getLastName()
-		<< "\t email Address: " << getEmailAddress()
+		<< "\t Email Address: " << getEmailAddress()
 		<< "\t Age: " << getAge();
 	cout << "\t Days in Course: {" << cDays[0] << ", " << cDays[1] << ", " << cDays[2] << "}";
 	cout << "\t Degree Program: " << dProS << "." << endl;

@@ -27,11 +27,20 @@ int main() {
 	// size of table for parsing?
 	const int stuDataTable = 5;
 
-	// Empty empty roster using default constructor
+	// Make empty roster using default constructor
 	Roster Roster;
 
+	//
+	for (int i = 0; i < stuDataTable; ++i) 
+	{
+		Roster.parse(studentData[i]);
+	}
+
 	// print out all students
-	for (int i = 0; i < stuDataTable; ++i) Roster.parse(studentData[i]);
+	for (int i = 0; i < stuDataTable; ++i) 
+	{
+		Roster.parse(studentData[i]);
+	}
 	cout << "Showing all students: \n";
 	Roster.printAll();
 	cout << "\n";
@@ -43,7 +52,7 @@ int main() {
 
 	// Print each student's average days in course
 	cout << "Showing average days per class: \n";
-		for (int i = 0; i < stuDataTable; i++) 
+		for (int i = 0; i < stuDataTable; ++i) 
 		{
 			Roster.printAverageDaysInCourse(Roster.classRosterArray[i]->getStudentID()); // FIX ME
 		}

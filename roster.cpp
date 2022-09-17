@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <array>
+#include <sstream>
+#include <vector>
 #include "degree.h"
 #include "student.h"
 #include "roster.h"
@@ -13,7 +15,7 @@ using namespace std;
 
 //Add each student to classRoster
 //use the provided data
-const string studentData[] = // im confused
+/*const string studentData[] =
 {
 	"A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
 	"A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK",
@@ -22,19 +24,48 @@ const string studentData[] = // im confused
 	//Add my own info
 	"A5,Alex,Fair,afair26@wgu.edu,29,42,25,18,SOFTWARE"
 };
+*/
 
-Roster::Roster() 
+/*
+Roster::Roster()
 {
-	this->classRosterArray = nullptr;
-	this->count = count;
-	this->index = -1;
+	this -> classRosterArray = nullptr;
+	this -> index = -1;
 
 }
 Roster::Roster(int count)
 {
-	this->count = count;
-	this->index = -1;
-	this->classRosterArray = new Student * [count];
+	this -> count = count;
+	this -> index = -1;
+	this -> classRosterArray = new Student * [count];
+}
+*/
+
+//Breaks down studentData with vector tokens, and then uses Roster add which adds them to classRosterArray via student() constructor
+void Roster::parse(string studentData)
+{
+	vector<string> tokens;
+	degreeProgram tempDegree{};
+	for (int i = 0; i < count; ++i) {
+		stringstream ss(studentData);
+
+		while (ss.good()) {
+			string substr;
+			getline(ss, substr, ',');
+			tokens.push_back(substr);
+		}
+
+		if (tokens[8] == "SECURITY") {
+			tempDegree = SECURITY;
+		}
+		if (tokens[8] == "NETWORK") {
+			tempDegree = NETWORK;
+		}
+		if (tokens[8] == "SOFTWARE") {
+			tempDegree = SOFTWARE;
+		}
+		Roster::add(tokens.at(0), tokens.at(1), tokens.at(2), tokens.at(3), stoi(tokens.at(4)), stoi(tokens.at(5)), stoi(tokens.at(6)), stoi(tokens.at(7)), tempDegree);
+	}
 }
 
 //Add new student to the list
@@ -67,17 +98,18 @@ void Roster::remove(string studentID)
 void Roster::printAll()
 {
 	cout << "\n";
-	for (int p = 0; p < 5; ++p) 
+	for (int p = 0; p < 5; p++) 
 	{
-		classRosterArray[p]->Print();
-	
+	//	  if (classRosterArray[p] != nullptr) {
+			classRosterArray[p]->print();
+	//	 }
 	}
 }
 
 //Print average days in course
 void Roster::printAverageDaysInCourse(string studentID)
 {
-	for (int i = 0; i <= Roster::count; ++i)
+	for (int i = 0; i < Roster::count; ++i)
 	{
 		if (classRosterArray[i]->getStudentID() == studentID)
 		{
@@ -108,10 +140,6 @@ void Roster::printByDegreeProgram(degreeProgram degree)
 
 }
 
-void Roster::parse(string studentData) 
-{
-
-}
 
 Roster::~Roster()
 {
