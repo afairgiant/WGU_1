@@ -32,13 +32,14 @@ int main() {
 
 	//parse
 	for (int i = 0; i < stuDataTable; ++i) 
-	{
-		cout << i << "\n";
+	{	
+		//Debug Code
+		//cout << i << "\n";
 		Roster.parse(studentData[i]);
 	}
 
 	// print out all students
-	cout << "Showing all students: \n";
+	cout << "\n Showing all students: \n";
 	Roster.printAll();
 	cout << "\n";
 
@@ -55,12 +56,12 @@ int main() {
 	cout << "\n";
 
 	// Print students in software degree
-	cout << "Showing students in the Software program \n";
+	//cout << "Showing students in the Software program \n";
 	Roster.printByDegreeProgram(SOFTWARE);
 	cout << "\n";
 
 	// Remove student A3
-	cout << "Removing student A3 \n";
+	//cout << "Removing student A3 \n";
 	Roster.remove("A3");
 	cout << "\n";
 
@@ -77,6 +78,6 @@ int main() {
 	// Deconsturctor to clear memeory 
 	Roster.~Roster();
 
-	cout << "press a key to exit";
+	cout << "press enter to exit";
 	cin.ignore();
 }

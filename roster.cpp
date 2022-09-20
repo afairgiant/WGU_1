@@ -44,7 +44,8 @@ Roster::Roster(int count)
 //Breaks down studentData with vector tokens, and then uses Roster add which adds them to classRosterArray via student() constructor
 void Roster::parse(string studentData)
 {
-	cout << "start of parse\n";
+	//Debug Code
+	//cout << "start of parse\n";
 	vector<string> tokens;
 	degreeProgram tempDegree;
 	//for (int i = 0; i < count; ++i) {
@@ -64,7 +65,7 @@ void Roster::parse(string studentData)
 		if (tokens[8] == "SOFTWARE") {
 			tempDegree = SOFTWARE;
 		}
-		cout << "about to add students\n";
+		cout << "\nAbout to add student\n";
 		Roster::add(tokens.at(0), tokens.at(1), tokens.at(2), tokens.at(3), stoi(tokens.at(4)), stoi(tokens.at(5)), stoi(tokens.at(6)), stoi(tokens.at(7)), tempDegree);
 	//}
 }
@@ -72,11 +73,13 @@ void Roster::parse(string studentData)
 //Add new student to the list
 void Roster::add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, degreeProgram degree)
 {
-	cout << "'" << studentID << "','" << firstName << "'\n";
+	//Debug Code
+	//cout << "'" << studentID << "','" << firstName << "'\n";
 	int daysInCourse[] = {daysInCourse1, daysInCourse2, daysInCourse3};
-	Student *fred;
-    fred =  new Student (studentID, firstName, lastName, emailAddress, age, daysInCourse, degree);
-	classRosterArray[index] = fred;
+	//Debug code
+	//Student *fred;
+    classRosterArray[index] = new Student(studentID, firstName, lastName, emailAddress, age, daysInCourse, degree);
+	//classRosterArray[index] = fred;
 	classRosterArray[index]->print();
 	index++;
 	cout << "\n Student added.\n";
@@ -90,7 +93,7 @@ void Roster::remove(string studentID)
 	{
 		if (classRosterArray[i]->getStudentID() == studentID) 
 		{
-			cout << "Removing student" << classRosterArray[i]->getStudentID() << "\n";
+			cout << "Removing student " << classRosterArray[i]->getStudentID() << "\n";
 			for (int j = i; j < count; j++) {
 				classRosterArray[j] = classRosterArray[j + 1];
 			}
@@ -112,7 +115,7 @@ void Roster::printAll()
 	cout << "\n";
 	for (int p = 0; p < count; p++)
 	{
-		cerr << p;
+		//cerr << p;
 		  if (classRosterArray[p] != nullptr) {
 			classRosterArray[p]->print();
 		  }
@@ -129,7 +132,7 @@ void Roster::printAverageDaysInCourse(string studentID)
 	{
 		if (classRosterArray[i]->getStudentID() == studentID)
 		{
-			cout << studentID << ": ";
+			cout << "\t" << studentID << ": ";
 			//add all numbers together and divide by 3 and new line
 			cout << (classRosterArray[i]->getDaysInCourse()[0] + classRosterArray[i]->getDaysInCourse()[1] + classRosterArray[i]->getDaysInCourse()[2]) / 3 << "\n";
 		}
@@ -139,7 +142,7 @@ void Roster::printAverageDaysInCourse(string studentID)
 //check each email for @ sign and a '.' at the end - Section E3.e
 void Roster::printInvalidEmails()
 {
-	cout << "Printing invalid emails: \n";
+	cout << "Showing invalid emails: \n";
 	for (int e = 0; e < count; e++) 
 	{
 		string email = classRosterArray[e]->getEmailAddress();
@@ -153,7 +156,28 @@ void Roster::printInvalidEmails()
 
 void Roster::printByDegreeProgram(degreeProgram degree)
 {
+	string tempD;
+	if (degree == SECURITY) {
+		tempD = "SECURITY";
+	}
+	else if (degree == NETWORK) {
+		tempD = "NETWORK";
+	}
+	else if (degree == SOFTWARE) {
+		tempD = "SOFTWARE";
+	}
+	else {
+		tempD = "No Degree Program Found";
+	}
+	cout << "Students in the " << tempD << " program. \n";
 
+	for (int i = 0; i < count; ++i)
+	{
+		if (classRosterArray[i]->getDegree() == degree)
+		{
+			classRosterArray[i]->print();
+		}
+	}
 }
 
 

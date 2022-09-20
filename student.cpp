@@ -21,8 +21,9 @@ Student::Student() {
 // constructor using all the variables D2-c
 Student::Student(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse[], degreeProgram degree) 
 {
-	cout << "im making things\n"; 
-	cout << "'" << studentID << "','" << firstName << "' '"<<emailAddress << "'\n";
+	//Debug Code
+	//cout << "im making things\n"; 
+	//cout << "'" << studentID << "','" << firstName << "' '"<<emailAddress << "'\n";
 	this->studentID = studentID;
 	this->firstName = firstName;
 	this->lastName = lastName;
@@ -112,11 +113,11 @@ void Student::print() {
 	string dProS = "Security";
 	if (getDegree() == degreeProgram::NETWORK) dProS = "Network";
 	if (getDegree() == degreeProgram::SOFTWARE) dProS = "Software";
-	cout << "Student ID: " << studentID
+	cout << "Student ID: " << getStudentID()
 		<< "\t First Name: " << getFirstName()
 		<< "\t Last Name: " << getLastName()
 		<< "\t Email Address: " << getEmailAddress()
-		<< "\t Age: " << getAge();
-	cout << "\t Days in Course: {" << cDays[0] << ", " << cDays[1] << ", " << cDays[2] << "}";
-	cout << "\t Degree Program: " << dProS << "." << endl;
+		<< "\t Age: " << getAge()
+	    << "\t Days in Course: {" << cDays[0] << ", " << cDays[1] << ", " << cDays[2] << "}"
+	    << "\t Degree Program: " << dProS << "." << endl;
 }
