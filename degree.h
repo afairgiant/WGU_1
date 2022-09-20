@@ -8,7 +8,7 @@ using namespace std;
 
 enum degreeProgram {
 	
-	SECURITY, NETWORK, SOFTWARE
+	UNKNOWN,SECURITY, NETWORK, SOFTWARE
 
 };
 

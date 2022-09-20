@@ -26,7 +26,7 @@ using namespace std;
 };
 */
 
-/*
+
 Roster::Roster()
 {
 	this -> classRosterArray = nullptr;
@@ -36,17 +36,18 @@ Roster::Roster()
 Roster::Roster(int count)
 {
 	this -> count = count;
-	this -> index = -1;
+	this -> index = 0;
 	this -> classRosterArray = new Student * [count];
 }
-*/
+
 
 //Breaks down studentData with vector tokens, and then uses Roster add which adds them to classRosterArray via student() constructor
 void Roster::parse(string studentData)
 {
+	cout << "start of parse\n";
 	vector<string> tokens;
-	degreeProgram tempDegree{};
-	for (int i = 0; i < count; ++i) {
+	degreeProgram tempDegree;
+	//for (int i = 0; i < count; ++i) {
 		stringstream ss(studentData);
 
 		while (ss.good()) {
@@ -54,7 +55,6 @@ void Roster::parse(string studentData)
 			getline(ss, substr, ',');
 			tokens.push_back(substr);
 		}
-
 		if (tokens[8] == "SECURITY") {
 			tempDegree = SECURITY;
 		}
@@ -64,16 +64,21 @@ void Roster::parse(string studentData)
 		if (tokens[8] == "SOFTWARE") {
 			tempDegree = SOFTWARE;
 		}
+		cout << "about to add students\n";
 		Roster::add(tokens.at(0), tokens.at(1), tokens.at(2), tokens.at(3), stoi(tokens.at(4)), stoi(tokens.at(5)), stoi(tokens.at(6)), stoi(tokens.at(7)), tempDegree);
-	}
+	//}
 }
 
 //Add new student to the list
 void Roster::add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, degreeProgram degree)
 {
+	cout << "'" << studentID << "','" << firstName << "'\n";
 	int daysInCourse[] = {daysInCourse1, daysInCourse2, daysInCourse3};
-	classRosterArray[++index] = new Student(studentID, firstName, lastName, emailAddress, age, daysInCourse, degree);
-
+	Student *fred;
+    fred =  new Student (studentID, firstName, lastName, emailAddress, age, daysInCourse, degree);
+	classRosterArray[index] = fred;
+	classRosterArray[index]->print();
+	index++;
 	cout << "\n Student added.\n";
 }
 
@@ -81,12 +86,15 @@ void Roster::add(string studentID, string firstName, string lastName, string ema
 void Roster::remove(string studentID)
 {
 	cout << "\n";
-	for (int i = 0; i < 5; ++i) 
+	for (int i = 0; i < count; ++i) 
 	{
 		if (classRosterArray[i]->getStudentID() == studentID) 
 		{
 			cout << "Removing student" << classRosterArray[i]->getStudentID() << "\n";
-			classRosterArray[i]->setStudentID("invalid");
+			for (int j = i; j < count; j++) {
+				classRosterArray[j] = classRosterArray[j + 1];
+			}
+			count--;
 			return;
 		}
 	}
@@ -97,12 +105,20 @@ void Roster::remove(string studentID)
 // print 
 void Roster::printAll()
 {
+	if (classRosterArray == nullptr) {
+		cout << "oops its all null";
+		return;
+	}
 	cout << "\n";
-	for (int p = 0; p < 5; p++) 
+	for (int p = 0; p < count; p++)
 	{
-	//	  if (classRosterArray[p] != nullptr) {
+		cerr << p;
+		  if (classRosterArray[p] != nullptr) {
 			classRosterArray[p]->print();
-	//	 }
+		  }
+		  else {
+			  cout << "oops its null";
+		  }
 	}
 }
 
@@ -124,7 +140,7 @@ void Roster::printAverageDaysInCourse(string studentID)
 void Roster::printInvalidEmails()
 {
 	cout << "Printing invalid emails: \n";
-	for (int e = 0; e < 5; e++) 
+	for (int e = 0; e < count; e++) 
 	{
 		string email = classRosterArray[e]->getEmailAddress();
 		int posAtSign = email.find('@');

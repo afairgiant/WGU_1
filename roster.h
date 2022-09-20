@@ -15,8 +15,8 @@ class Roster
 {
 public:
 		//define functions E3. Sets instance variables from D1 and update roster
-	//Roster();
-	//Roster(int count);
+	Roster();
+	Roster(int count);
 	void add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, degreeProgram degree);
 	void remove(string studentID);
 	void printAll();
@@ -36,7 +36,7 @@ public:
 private:
 	//Student** classRosterArray;
 		//for incremetal adding student object for Roster::add
-	int index = -1;
+	int index = 0;
 		//for setting up classRosterArray blanks
 	int count;
 };

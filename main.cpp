@@ -28,25 +28,21 @@ int main() {
 	const int stuDataTable = 5;
 
 	// Make empty roster using default constructor
-	Roster Roster;
+	Roster Roster(stuDataTable);
 
-	//
+	//parse
 	for (int i = 0; i < stuDataTable; ++i) 
 	{
+		cout << i << "\n";
 		Roster.parse(studentData[i]);
 	}
 
 	// print out all students
-	for (int i = 0; i < stuDataTable; ++i) 
-	{
-		Roster.parse(studentData[i]);
-	}
 	cout << "Showing all students: \n";
 	Roster.printAll();
 	cout << "\n";
 
 	// Print invalid emails
-	cout << "Showing invalid emails: \n";
 	Roster.printInvalidEmails();
 	cout << "\n";
 
@@ -81,4 +77,6 @@ int main() {
 	// Deconsturctor to clear memeory 
 	Roster.~Roster();
 
+	cout << "press a key to exit";
+	cin.ignore();
 }

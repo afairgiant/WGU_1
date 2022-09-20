@@ -34,7 +34,9 @@ public:
 
 
     // CONSTRUCTOR - Section D2.d
-    Student(string studentID, string nameFirst, string nameLast, string email, int age, int daysInCourse[], degreeProgram degree);
+    Student(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse[], degreeProgram degree);
+
+    
 
 private:
 

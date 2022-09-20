@@ -17,53 +17,59 @@ Student::Student() {
 }
 
 
+
 // constructor using all the variables D2-c
-Student::Student(string studentID, string nameFirst, string nameLast, string email, int age, int daysInCourse[], degreeProgram degree) 
+Student::Student(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse[], degreeProgram degree) 
 {
+	cout << "im making things\n"; 
+	cout << "'" << studentID << "','" << firstName << "' '"<<emailAddress << "'\n";
 	this->studentID = studentID;
 	this->firstName = firstName;
 	this->lastName = lastName;
 	this->emailAddress = emailAddress;
 	this->age = age;
 	this->daysInCourse = new int[3];
-
+	this->daysInCourse[0] = daysInCourse[0];
+	this->daysInCourse[1] = daysInCourse[1];
+	this->daysInCourse[2] = daysInCourse[2];
+	this->degree = degree;
 }
 
 // Access Functions D2-a
 
 string Student::getStudentID() const
 {
-	return string();
+	return studentID;
 }
 
 string Student::getFirstName() const
 {
-	return string();
+	return firstName;
 }
 
 string Student::getLastName() const
 {
-	return string();
+	return lastName;
 }
 
 string Student::getEmailAddress() const
 {
-	return string();
+	return emailAddress;
 }
 
 int Student::getAge() const
 {
-	return 0;
+	return age;
 }
 
 int* Student::getDaysInCourse() const
 {
-	return nullptr;
+	return daysInCourse;
 }
 
 degreeProgram Student::getDegree() const
 {
-	return degreeProgram();
+	return degree;
 }
 
 // Mutator Functions D2-b
@@ -106,7 +112,7 @@ void Student::print() {
 	string dProS = "Security";
 	if (getDegree() == degreeProgram::NETWORK) dProS = "Network";
 	if (getDegree() == degreeProgram::SOFTWARE) dProS = "Software";
-	cout << "Student ID: " << getStudentID()
+	cout << "Student ID: " << studentID
 		<< "\t First Name: " << getFirstName()
 		<< "\t Last Name: " << getLastName()
 		<< "\t Email Address: " << getEmailAddress()
