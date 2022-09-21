@@ -27,56 +27,56 @@ int main() {
 	// size of table for parsing?
 	const int stuDataTable = 5;
 
-	// Make empty roster using default constructor
-	Roster Roster(stuDataTable);
+	// Make empty Roster instance called classRoster using default constructor
+	Roster classRoster(stuDataTable);
 
 	//parse
 	for (int i = 0; i < stuDataTable; ++i) 
 	{	
 		//Debug Code
 		//cout << i << "\n";
-		Roster.parse(studentData[i]);
+		classRoster.parse(studentData[i]);
 	}
 
 	// print out all students
 	cout << "\n Showing all students: \n";
-	Roster.printAll();
+	classRoster.printAll();
 	cout << "\n";
 
 	// Print invalid emails
-	Roster.printInvalidEmails();
+	classRoster.printInvalidEmails();
 	cout << "\n";
 
 	// Print each student's average days in course
 	cout << "Showing average days per class: \n";
 		for (int i = 0; i < stuDataTable; ++i) 
 		{
-			Roster.printAverageDaysInCourse(Roster.classRosterArray[i]->getStudentID()); // FIX ME
+			classRoster.printAverageDaysInCourse(classRoster.classRosterArray[i]->getStudentID()); // FIX ME
 		}
 	cout << "\n";
 
 	// Print students in software degree
 	//cout << "Showing students in the Software program \n";
-	Roster.printByDegreeProgram(SOFTWARE);
+	classRoster.printByDegreeProgram(SOFTWARE);
 	cout << "\n";
 
 	// Remove student A3
 	//cout << "Removing student A3 \n";
-	Roster.remove("A3");
+	classRoster.remove("A3");
 	cout << "\n";
 
 	// Print all students
 	cout << "Showing all students: \n";
-	Roster.printAll();
+	classRoster.printAll();
 	cout << "\n";
 
 	// Remove student A3. - should throw an error. "Student with 'ID' was not found" or something like that
 	cout << "Removing student A3 \n";
-	Roster.remove("A3");
+	classRoster.remove("A3");
 	cout << "\n";
 
 	// Deconsturctor to clear memeory 
-	Roster.~Roster();
+	classRoster.~Roster();
 
 	cout << "press enter to exit";
 	cin.ignore();
